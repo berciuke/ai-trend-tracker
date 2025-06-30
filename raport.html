@@ -1,0 +1,652 @@
+/*
+
+THIS FILE IS AI-GENERATED FROM FILE README.md
+
+*/
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raport Projektowy: Analiza Sentymentu i Dynamiki Trendów na Reddicie</title>
+    <style>
+        /* Fonty */
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+        
+        /* Reset i podstawowe ustawienia */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Ustawienia główne */
+        html {
+            font-size: 12pt;
+            line-height: 1.6;
+        }
+        
+        body {
+            font-family: 'Crimson Text', 'Times New Roman', serif;
+            color: #2c3e50;
+            background: white;
+            margin: 0;
+            padding: 1.5cm;
+            max-width: none;
+            counter-reset: page-counter;
+        }
+        
+        /* Nagłówki */
+        h1 {
+            font-family: 'Source Sans Pro', 'Arial', sans-serif;
+            font-size: 24pt;
+            font-weight: 700;
+            color: #1a252f;
+            text-align: center;
+            margin-bottom: 0.5em;
+            padding-bottom: 0.5em;
+            border-bottom: 3px solid #34495e;
+            page-break-after: avoid;
+        }
+        
+        h2 {
+            font-family: 'Source Sans Pro', 'Arial', sans-serif;
+            font-size: 18pt;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            page-break-after: avoid;
+            border-left: 4px solid #3498db;
+            padding-left: 0.5em;
+        }
+        
+        h3 {
+            font-family: 'Source Sans Pro', 'Arial', sans-serif;
+            font-size: 14pt;
+            font-weight: 600;
+            color: #34495e;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            page-break-after: avoid;
+        }
+        
+        /* Tekst główny */
+        p {
+            text-align: justify;
+            margin-bottom: 1em;
+            text-indent: 0;
+            hyphens: auto;
+            orphans: 2;
+            widows: 2;
+        }
+        
+        /* Listy */
+        ul, ol {
+            margin-left: 1.5em;
+            margin-bottom: 1em;
+        }
+        
+        li {
+            margin-bottom: 0.3em;
+        }
+        
+        /* Kod inline */
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: #f8f9fa;
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            border: 1px solid #e9ecef;
+        }
+        
+        /* Wyróżnienia */
+        strong {
+            font-weight: 600;
+            color: #1a252f;
+        }
+        
+        em {
+            font-style: italic;
+        }
+        
+        /* Linia pozioma */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #2c3e50, #3498db);
+            margin: 2em 0;
+            page-break-after: avoid;
+        }
+        
+        /* Informacje o autorze */
+        .author-info {
+            text-align: center;
+            font-size: 14pt;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 2em;
+        }
+        
+        /* Ustawienia druku */
+        @media print {
+            html {
+                font-size: 11pt;
+            }
+            
+            body {
+                margin: 0;
+                padding: 1.5cm;
+                background: white;
+                color: black;
+            }
+            
+            /* Nagłówek strony */
+            @page {
+                size: A4;
+                margin: 1.5cm 1.5cm 2cm 1.5cm;
+                
+                @top-center {
+                    content: "Raport Projektowy: Analiza Sentymentu i Dynamiki Trendów na Reddicie";
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-size: 9pt;
+                    color: #666;
+                    border-bottom: 1px solid #ccc;
+                    padding-bottom: 0.5em;
+                    margin-bottom: 1em;
+                }
+                
+                @bottom-left {
+                    content: "Arkadiusz Pająk";
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-size: 9pt;
+                    color: #666;
+                }
+                
+                @bottom-right {
+                    content: "Strona " counter(page);
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-size: 9pt;
+                    color: #666;
+                }
+            }
+            
+            /* Pierwszy arkusz bez nagłówka */
+            @page :first {
+                @top-center {
+                    content: none;
+                }
+            }
+            
+            h1 {
+                font-size: 20pt;
+                margin-top: 0;
+            }
+            
+            h2 {
+                font-size: 16pt;
+                page-break-before: avoid;
+                page-break-after: avoid;
+            }
+            
+            h3 {
+                font-size: 13pt;
+                page-break-before: avoid;
+                page-break-after: avoid;
+            }
+            
+            /* Zapobieganie podziałom stron w niewłaściwych miejscach */
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+            
+            ul, ol {
+                page-break-inside: avoid;
+            }
+            
+            /* Ukryj elementy niepotrzebne w druku */
+            .no-print {
+                display: none;
+            }
+        }
+        
+        /* Responsive dla ekranu */
+        @media screen {
+            body {
+                max-width: 24cm;
+                margin: 2em auto;
+                padding: 1.5cm;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                background: white;
+            }
+            
+            /* Symulacja nagłówka dla podglądu na ekranie */
+            body::before {
+                content: "Raport Projektowy: Analiza Sentymentu i Dynamiki Trendów na Reddicie";
+                display: block;
+                text-align: center;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 9pt;
+                color: #666;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 0.5em;
+                margin-bottom: 2em;
+                margin-top: -1cm;
+            }
+            
+            /* Symulacja stopki dla podglądu na ekranie */
+            body::after {
+                content: "Arkadiusz Pająk";
+                display: block;
+                text-align: left;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 9pt;
+                color: #666;
+                border-top: 1px solid #ccc;
+                padding-top: 0.5em;
+                margin-top: 2em;
+                margin-bottom: -1cm;
+            }
+        }
+        
+        /* Style dla pierwszej strony */
+        .title-page {
+            text-align: center;
+            margin-bottom: 3em;
+        }
+        
+        .title-page h1 {
+            margin-bottom: 1em;
+            border-bottom: none;
+        }
+        
+        .title-page .author-info {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+        
+        /* Numeracja rozdziałów - dopasowanie do polskiego stylu */
+        .chapter-number {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        /* GitHub Call-to-Action Component */
+        .github-cta-section {
+            margin: 3em 0;
+            page-break-inside: avoid;
+        }
+        
+        .github-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            padding: 2em;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .github-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.25);
+        }
+        
+        .github-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5em;
+            padding-bottom: 1em;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .github-icon {
+            margin-right: 0.8em;
+            color: #2c3e50;
+            flex-shrink: 0;
+        }
+        
+        .github-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .github-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+            color: #34495e;
+            text-align: justify;
+        }
+        
+        .github-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1em;
+            margin-bottom: 2em;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8em;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateX(4px);
+        }
+        
+        .feature-icon {
+            font-size: 1.2em;
+            margin-right: 0.8em;
+            flex-shrink: 0;
+        }
+        
+        .feature-item span:last-child {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .github-actions {
+            display: flex;
+            gap: 1em;
+            margin-bottom: 1.5em;
+            flex-wrap: wrap;
+        }
+        
+        .github-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8em 1.5em;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.2s ease;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .github-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .github-button:hover::before {
+            left: 100%;
+        }
+        
+        .github-button.primary {
+            background: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
+        
+        .github-button.primary:hover {
+            background: #34495e;
+            border-color: #34495e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+        }
+        
+        .github-button.star {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            border-color: #f39c12;
+            animation: pulse-star 2s infinite;
+        }
+        
+        .github-button.star:hover {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            border-color: #e67e22;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+        
+        @keyframes pulse-star {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+            }
+            50% {
+                box-shadow: 0 6px 25px rgba(243, 156, 18, 0.5);
+            }
+        }
+        
+        .button-icon, .star-icon {
+            margin-right: 0.5em;
+            flex-shrink: 0;
+        }
+        
+        .github-call-to-action {
+            background: white;
+            padding: 1.2em;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            font-style: italic;
+            text-align: center;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .github-call-to-action strong {
+            color: #e74c3c;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .github-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .github-actions {
+                flex-direction: column;
+            }
+            
+            .github-button {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+        
+        /* Print adjustments */
+        @media print {
+            .github-card {
+                background: white;
+                border: 2px solid #333;
+                box-shadow: none;
+            }
+            
+            .github-button {
+                border-color: #333 !important;
+                color: #333 !important;
+                background: white !important;
+            }
+            
+            .github-call-to-action {
+                background: #f5f5f5;
+                border-left-color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title-page">
+        <h1>Raport Projektowy: Analiza Sentymentu i Dynamiki Trendów na Reddicie</h1>
+        <p class="author-info">Arkadiusz Pająk<br>Czerwiec 2025</p>
+    </div>
+    
+    <hr>
+    
+    <h2><span class="chapter-number">1.</span> Wprowadzenie i Cel Projektu</h2>
+    
+    <h3>1.1. Geneza i motywacja</h3>
+    <p>Pomysł na ten projekt zrodził się w ramach przedmiotu "Inteligencja Obliczeniowa". Szukałem tematu, który byłby zarówno ciekawy, jak i możliwy do zrealizowania w ramach moich obecnych umiejętności, a jednocześnie pozwoliłby mi zastosować w praktyce wiedzę zdobytą na laboratoriach. Zainspirował mnie temat nr 9 z listy projektów - "Analiza tekstu z mediów społecznościowych".</p>
+    
+    <p>Reddit jest pełen ludzkich opinii na właściwie każdy temat oraz nietrudno jest pozyskać (""zescrapować") z niego posty. Pomyślałem, że analiza sentymentu w społecznościach technologicznych i inwestycyjnych mogłaby być fascynująca. Czy nowa technologia jest przyjmowana z entuzjazmem? Czy nastroje na forach inwestycyjnych odzwierciedlają wahania na giełdzie? To pytania, na które chciałem spróbować odpowiedzieć, tworząc ten projekt.</p>
+    
+    <h3>1.2. Założenia i cele</h3>
+    <ol>
+        <li>Pobranie postów z Reddita przez API (PRAW), samodzielnie ogarniając autoryzację i zapis do CSV.</li>
+        <li>Oczyszczanie, tokenizacja, usuwanie stopwordów, lematyzacja - wszystko zbudowane na bazie kodu pisanego na labach.</li>
+        <li>Użycie prostego, ale skutecznego VADER-a do oceny nastrojów.</li>
+        <li>Postawienie lekkiej appki w Streamlicie, która pokazuje wyniki i pozwala je eksplorować.</li>
+    </ol>
+    
+    <p>Zależało mi na tym, żeby kod był maksymalnie prosty i czytelny - tak, żeby ktoś z mojego roku mógł bez problemu przejrzeć i zrozumieć każdy etap. Nie kopiowałem gotowców - świadomie realizowałem projekt, ucząc się po drodze i testując różne podejścia.</p>
+    
+    <h3>1.3. Wybrane technologie</h3>
+    <ul>
+        <li><strong>Python, Pandas, Matplotlib</strong></li>
+        <li><strong>PRAW (Python Reddit API Wrapper):</strong> Najprostsze narzędzie do scrapowania danych z Reddita.</li>
+        <li><strong>NLTK (Natural Language Toolkit):</strong> Główne narzędzie do przetwarzania języka naturalnego. Korzystałem z niego na laboratoriach, więc chciałem dalej zgłębiać jego możliwości (tokenizacja, stopwords, lematyzacja, VADER).</li>
+        <li><strong>WordCloud:</strong> Do tworzenia wizualizacji - chmura słów</li>
+        <li><strong>Streamlit:</strong> Do stworzenia interaktywnej aplikacji webowej. Pozwala błyskawicznie przekształcić skrypty analityczne w działającą apkę bez konieczności implementacji frontendu np. przy użyciu Next.js.</li>
+    </ul>
+    
+    <h2><span class="chapter-number">2.</span> Realizacja Projektu</h2>
+    
+    <h3>2.1. Krok 1: Zbieranie Danych (<code>scraper.py</code>)</h3>
+    <p>Pierwszym wyzwaniem było zdobycie danych. Zdecydowałem się na scraping Reddita, a konkretnie trzech subredditów: <code>r/technology</code>, <code>r/investing</code> oraz <code>r/wallstreetbets</code>. Wybór był celowy - chciałem mieć mieszankę tematów technologicznych i finansowych, w tym jedno forum (<code>wallstreetbets</code>) znane z bardzo emocjonalnego języka i zdolności do wpływania na rzeczywiste rynki finansowe (np. głośna sprawa akcji GameStop i AMC). To pozwalało sprawdzić, jak sentyment użytkowników może mieć przełożenie na decyzje inwestycyjne.</p>
+    
+    <p>Napisałem skrypt <code>scraper.py</code>, który za pomocą biblioteki PRAW łączy się z API Reddita i pobiera najgorętsze posty z wybranych subredditów. Skrypt zapisuje kluczowe informacje o postach (tytuł, treść, autor, data, liczba komentarzy) do pliku <code>reddit_posts.csv</code>. Musiałem oczywiście założyć własną ""aplikację" na moim koncie Reddit, żeby uzyskać klucze API.</p>
+    
+    <h3>2.2. Krok 2: Przetwarzanie Wstępne Tekstu (<code>preprocess.py</code>)</h3>
+    <p>Surowe dane tekstowe są pełne ""śmieci", które mogą zakłócić analizę. Dlatego kolejnym krokiem było ich oczyszczenie. Skrypt <code>preprocess.py</code> jest tzw. potokiem przetwarzania, który dla każdego posta wykonuje następujące operacje:</p>
+    
+    <p>Najpierw wszystko sprowadzałem do małych liter, żeby nie mieć problemów z wielkością znaków. Potem usuwałem śmieci typu linki, cyfry i znaki specjalne, bo tylko zaśmiecają analizę. Następnie dzieliłem teksty na pojedyncze słowa (tokeny), żeby dało się na nich pracować. Z tych słów pozbywałem się tzw. stopwordów, czyli takich ""the", ""a", ""is" - słów, które nic nie wnoszą. Na końcu robiłem lematyzację, czyli sprowadzałem słowa do ich podstawowej formy - dzięki temu ""runs", ""running" i ""ran" były traktowane jako jedno i to samo.</p>
+    
+    <p>Cały proces był inspirowany zadaniami z laboratorium. Po przetworzeniu, czyste dane są zapisywane do nowego pliku <code>reddit_posts_processed.csv</code>, gotowe do dalszej analizy.</p>
+    
+    <h3>2.3. Krok 3: Analiza Sentymentu (<code>sentiment_analysis.py</code>)</h3>
+    <p>To serce całego projektu. Do analizy sentymentu użyłem narzędzia <strong>VADER (Valence Aware Dictionary and sEntiment Reasoner)</strong>, które jest częścią biblioteki NLTK. Wybrałem VADERa, ponieważ jest on specjalnie dostosowany do analizy tekstów z mediów społecznościowych - dobrze radzi sobie ze slangiem, emotikonami i wielkimi literami. Jest to model oparty na regułach i słowniku, co czyni go prostym w użyciu i interpretacji, idealnym na potrzeby tego projektu.</p>
+    
+    <p>Skrypt <code>sentiment_analysis.py</code> wczytuje przetworzone dane, a następnie dla każdego posta oblicza cztery wskaźniki VADER:</p>
+    
+    <ul>
+        <li><code>positive</code>, <code>negative</code>, <code>neutral</code>: udział słów pozytywnych, negatywnych i neutralnych.</li>
+        <li><code>compound</code>: zagregowany wynik od -1 (skrajnie negatywny) do +1 (skrajnie pozytywny).</li>
+    </ul>
+    
+    <p>Na podstawie wyniku <code>compound</code> stworzyłem prostą klasyfikację, oznaczając każdy post jako ""pozytywny", ""neutralny" lub ""negatywny". Wyniki wraz z etykietami zapisałem do pliku <code>reddit_posts_with_sentiment.csv</code>.</p>
+    
+    <p>Dodatkowo, w tym skrypcie zaimplementowałem generowanie dwóch kluczowych wizualizacji: wykresu słupkowego pokazującego ogólny rozkład sentymentu oraz chmury słów, która w graficzny sposób pokazuje najczęściej występujące terminy.</p>
+    
+    <h2><span class="chapter-number">3.</span> Prezentacja Wyników</h2>
+    
+    <h3>3.1. Aplikacja Webowa (<code>app.py</code>)</h3>
+    <p>Samo przetworzenie danych to nie wszystko - trzeba je jeszcze w przystępny sposób zaprezentować. Do tego celu stworzyłem prostą aplikację webową za pomocą biblioteki Streamlit.</p>
+    
+    <p>Aplikacja <code>app.py</code> pozwala na:</p>
+    
+    <ul>
+        <li><strong>Przeglądanie ogólnych wyników:</strong> Na stronie głównej wyświetlają się wizualizacje (rozkład sentymentu i chmura słów) dla całego zbioru danych.</li>
+        <li><strong>Interaktywną analizę:</strong> Użytkownik (w tym przypadku prowadzący) może filtrować wyniki według konkretnego subreddita, aby porównać nastroje panujące w różnych społecznościach.</li>
+        <li><strong>Podgląd danych:</strong> Aplikacja wyświetla również tabelę z przetworzonymi danymi i wynikami sentymentu, co pozwala na bardziej szczegółową inspekcję.</li>
+    </ul>
+    
+    <p>Starałem się, aby interfejs był czysty, prosty i zawierał moje ""studenckie" komentarze, tłumaczące co widać w danej sekcji.</p>
+    
+    <!-- GitHub Repository Call-to-Action -->
+    <div class="github-cta-section">
+        <div class="github-card">
+            <div class="github-header">
+                <svg class="github-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" fill="currentColor"/>
+                </svg>
+                <h3>Kod źródłowy projektu</h3>
+            </div>
+            
+            <div class="github-content">
+                <p class="github-description">
+                    Cały kod projektu jest dostępny na GitHub. Znajdziesz tam implementację scrapera, analizę sentymentu, aplikację Streamlit oraz wszystkie skrypty pomocnicze.
+                </p>
+                
+                <div class="github-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span>Scraping danych z Reddit API</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span>Analiza sentymentu z VADER</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🚀</span>
+                        <span>Aplikacja webowa w Streamlit</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📈</span>
+                        <span>Wizualizacje i wykresy</span>
+                    </div>
+                </div>
+                
+                <div class="github-actions">
+                    <a href="https://github.com/berciuke/ai-trend-tracker" target="_blank" class="github-button primary">
+                        <svg class="button-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" fill="currentColor"/>
+                        </svg>
+                        Zobacz kod na GitHub
+                    </a>
+                    
+                    <a href="https://github.com/berciuke/ai-trend-tracker" target="_blank" class="github-button star">
+                        <svg class="star-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                        </svg>
+                        ⭐ Daj gwiazdkę!
+                    </a>
+                </div>
+                
+                <p class="github-call-to-action">
+                    <strong>Podobał Ci się projekt?</strong> Zostaw gwiazdkę na GitHub, żeby pomóc innym go znaleźć! 
+                    Każda gwiazdka motywuje do dalszego rozwoju i dzielenia się wiedzą.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h2><span class="chapter-number">4.</span> Podsumowanie i Wnioski</h2>
+    
+    <h3>4.1. Wnioski z projektu</h3>
+    <p>Realizacja tego projektu była niezwykle pouczającym doświadczeniem. Udało mi się z powodzeniem przejść przez wszystkie etapy projektu analitycznego - od surowych danych po interaktywną wizualizację. Zrozumiałem, jak ważne jest staranne przygotowanie danych i jak duży wpływ ma ono na końcowe wyniki. Dowiedziałem się też, że nawet proste modele, takie jak VADER, mogą dać ciekawe i wartościowe wyniki, jeśli zostaną poprawnie zastosowane.</p>
+    
+    <p>Największym wyzwaniem było dla mnie samo zebranie i oczyszczenie danych - to faktycznie, jak mówią specjaliści, zajmuje najwięcej czasu. Ciekawym doświadczeniem było też ""ubranie" moich analiz w aplikację Streamlit, co sprawiło, że projekt stał się znacznie bardziej namacalny - taką miałem wizję ;-).</p>
+    
+    <h3>4.2. Wnioski z pozyskanych danych</h3>
+    <p>Analiza danych pokazała ciekawe różnice między subredditami. <code>r/investing</code> to najbardziej optymistyczna przestrzeń - aż 82% postów miało pozytywny wydźwięk. Można wnioskować, że społeczność ta skupia się na długoterminowych strategiach i dzieleniu się sukcesami, a nie na emocjonalnym reagowaniu na krótkoterminowe wydarzenia.</p>
+    
+    <p>W <code>r/technology</code> natomiast proporcje są mocno zbalansowane - dużo treści neutralnych, sporo pozytywnych i negatywnych. To raczej forum zorientowane na wymianę informacji i nowinki techniczne niż emocjonalne komentarze.</p>
+    
+    <p><code>r/wallstreetbets</code> zgodnie z oczekiwaniami prezentuje wyraźną przewagę postów pozytywnych, ale też zauważalną obecność negatywnych - co pasuje do jego reputacji jako miejsca, gdzie dominuje hype, ale też dramaty i frustracje po dużych stratach. Ogólny obraz sentymentu pokrywa się więc dobrze z charakterem tych społeczności i potwierdza, że VADER całkiem trafnie je rozróżnia.</p>
+    
+    <h3>4.3. Możliwości rozwoju</h3>
+    <p>Oczywiście, ten projekt to dopiero początek. Gdybym miał więcej czasu, mogłbym go rozwinąć o:</p>
+    
+    <ul>
+        <li><strong>Analizę w czasie:</strong> Dodać wykresy pokazujące, jak sentyment dla danego tematu (np. konkretnej spółki giełdowej) zmieniał się w czasie.</li>
+        <li><strong>Bardziej zaawansowane modele:</strong> Spróbować użyć modeli opartych na uczeniu maszynowym lub nawet gotowych modeli transformerowych (np. z Hugging Face) i porównać ich wyniki z VADERem.</li>
+        <li><strong>Topic Modelling:</strong> Zastosować algorytmy takie jak LDA, aby automatycznie odkrywać główne tematy dyskusji w zebranych postach.</li>
+    </ul>
+    
+    <h3>4.4. Zakończenie</h3>
+    <p>Jestem bardzo zadowolony z tego projektu. Dał mi on ogromną satysfakcję i poczucie, że potrafię wykorzystać wiedzę z zajęć do stworzenia czegoś od zera. To zupełnie inne uczucie niż tylko rozwiązywanie pojedynczych zadań na laboratoriach. Widę teraz znacznie lepiej, jak poszczególne elementy - programowanie, statystyka, przetwarzanie języka - łączą się w jedną, spójną całość. Myślę, że to doświadczenie będzie solidnym fundamentem pod dalszą naukę i przyszłe, bardziej zaawansowane projekty.</p>
+</body>
+</html>
